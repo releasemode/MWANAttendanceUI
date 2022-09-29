@@ -1,0 +1,30 @@
+<a style="cursor: pointer" (click)="exportexcel()">
+   <button class="btn btn-primary">Download</button>
+  </a>
+<div class="container">
+    <div class="card p-3 shadow-sm">
+        <table class="table" id="excel-table">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Employee Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Attendance Type</th>
+                <th scope="col">Submission Time</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let attendance of attendances">
+                <th scope="row">{{attendance.employeeCode}}</th>
+                <td>{{attendance.name}}</td>
+                <td>{{attendance.department}}</td>
+                <td>{{attendance.registrationType}}</td>
+                <td>{{attendance.createDateTime}}</td>
+              
+              </tr>
+            
+            </tbody>
+          </table>
+    </div>
+</div>

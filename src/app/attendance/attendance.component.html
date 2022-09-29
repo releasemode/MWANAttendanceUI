@@ -1,0 +1,101 @@
+<div class="my-5" *ngIf="!loading && isUserLoggedIn()">
+
+    <div class="container" *ngIf="distance && distance<=allowedRadius && allowedDevice">
+      <div class="card p-3 shadow-sm">
+        <form [formGroup]="form">
+          <div class="row">
+            <h3 class="text-center">Employees Attendance -- {{distance}}</h3>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Employee Code</label>
+            <input type="text" class="form-control" formControlName="emp_code" placeholder="Enter Employee Code">
+          </div>
+   
+          <div class="form-group">
+            <label for="contract_type">Type of Contract</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="contract_type" formControlName="contract_type" value="full" checked>
+              <label class="form-check-label">
+                Contract Type 1
+              </label>
+           
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" formControlName="contract_type" name="contract_type" value="partial">
+              <label class="form-check-label">
+                Contract Type 2
+              </label>
+            </div>
+          </div>
+    
+          <div class="form-group">
+            <label for="email">Department</label>
+            <select class="form-control" formControlName="department" >
+              <option selected disabled>Choose...</option>
+              <option value="HR">HR</option>
+              <option value="Digital Solutions">Digital Solutions</option>
+              <option value="Communications">Communications</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="registration_type">Type of registration</label>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="registration_type" formControlName="registration_type" value="Entry" checked>
+              <label class="form-check-label">
+                Entry
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="registration_type" formControlName="registration_type" value="Exit">
+              <label class="form-check-label">
+                Exit
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="registration_type" formControlName="registration_type" value="Early Exit">
+              <label class="form-check-label">
+                Early Exit
+              </label>
+            </div>
+          </div>
+         <div class="row text-center">
+          <button (click)="submitForm()" 
+         
+          class="btn btn-primary text-center w-25 mx-auto">{{submitting?'Loading..':"Submit"}}</button>  
+         </div>
+         <!-- [disabled]="!form.valid || submitting" -->
+        </form>
+      </div>
+    </div>
+    </div>
+
+    <div class="container text-center" *ngIf="!isUserLoggedIn">
+        <div class="alert alert-danger" role="alert">
+  
+           sorry you should login first..
+          </div>
+    </div>
+    <div class="container text-center" *ngIf="!allowedDevice">
+   
+      <div class="alert alert-danger" role="alert">
+  
+        Sorry currently we dont support desktop browsers. Please use your mobile browsers.
+      </div>
+    </div>
+  
+    <div class="container text-center" *ngIf="distance && distance>allowedRadius && allowedDevice">
+   
+      <div class="alert alert-danger" role="alert">
+  
+        You are outside designated area, Please visit the office building to make your attendance. {{distance}}
+      </div>
+    </div>
+  
+
+    
+    <div class="container text-center" *ngIf="!locationAccess">
+      <div class="alert alert-danger" role="alert">
+        You should allow location to register your attendance.
+      </div>
+    </div>
