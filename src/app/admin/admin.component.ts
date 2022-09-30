@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import * as XLSX from 'xlsx'; 
+import { finalDate } from '../AttandanceModel';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -10,14 +11,20 @@ import * as XLSX from 'xlsx';
 export class AdminComponent implements OnInit {
   attendances:any;
   fileName= 'attandance.xlsx';  
+  @Input('principle') empName: string='';
+  reportDate:string='';
+ 
   constructor(public http: HttpClient) { }
-  
+ 
   ngOnInit(): void {
-    this.loadAttendanceData();
+      this.loadAttendanceData();
   }
 
+ 
+
   async loadAttendanceData(){
-   this.attendances= await this.http.get(environment.baseUrl + "/api/employeeattendance").toPromise()
+    let queryParams = new HttpParams().append("createDate",this.reportDate);
+   this.attendances= await this.http.get(environment.baseUrl + "/api/employeeattendance?createDate="+this.reportDate).toPromise()
       
     console.log(this.attendances)
   }
@@ -35,6 +42,11 @@ export class AdminComponent implements OnInit {
        /* save to file */
        XLSX.writeFile(wb, this.fileName);
 			
+    }
+    onDateSelected(eventData:string){
+      // console.log(eventData.selectedDate);
+      this.reportDate =eventData;
+      this.loadAttendanceData();
     }
 
 }

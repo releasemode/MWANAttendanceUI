@@ -50,7 +50,13 @@ export class AppComponent implements OnInit {
         this.setLoginDisplay();
       })
   }
-
+  isReportsAllowed(){
+    if(this.empName=='Ahmed A. Anzari'){
+       return true;
+    }else{
+      return false;
+    }
+  }
   setLoginDisplay() {
     // console.log(this.msalService.instance.getAllAccounts().length);
      console.log(this.msalService.instance.getAllAccounts());

@@ -175,7 +175,7 @@ export class AttendanceComponent implements OnInit {
   toRad(Value: any) {
     return Value * Math.PI / 180;
   }
-
+  
   async submitForm() {
     console.log(this.form.value)
     
@@ -190,7 +190,6 @@ export class AttendanceComponent implements OnInit {
             Latitude:this.empAttendanceLat.toString(),
             longitude: this.empAttendanceLong.toString(),
             CreateDateTime:new Date().toISOString()
-
           }
         
       console.log(attendanceModel);

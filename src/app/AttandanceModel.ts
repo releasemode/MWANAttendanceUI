@@ -9,3 +9,9 @@ export interface AttandanceModel{
         CreateDateTime:String;
 
 }
+
+export interface finalDate{
+        year:Number,
+        month:Number,
+        day:Number
+      }

@@ -15,15 +15,15 @@
           <div class="form-group">
             <label for="contract_type">Type of Contract</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="contract_type" formControlName="contract_type" value="full" checked>
-              <label class="form-check-label">
+              <input class="form-check-input" type="radio" id="ctype1" name="contract_type" formControlName="contract_type" value="full" checked>
+              <label for="ctype1" class="form-check-label">
                 Contract Type 1
               </label>
            
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" formControlName="contract_type" name="contract_type" value="partial">
-              <label class="form-check-label">
+              <input class="form-check-input" type="radio" id="ctype2" formControlName="contract_type" name="contract_type" value="partial">
+              <label for="ctype2" class="form-check-label">
                 Contract Type 2
               </label>
             </div>
@@ -41,20 +41,20 @@
           <div class="form-group">
             <label for="registration_type">Type of registration</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="registration_type" formControlName="registration_type" value="Entry" checked>
-              <label class="form-check-label">
+              <input class="form-check-input" id="rtype1" type="radio" name="registration_type" formControlName="registration_type" value="Entry" checked>
+              <label for="rtype1" class="form-check-label">
                 Entry
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="registration_type" formControlName="registration_type" value="Exit">
-              <label class="form-check-label">
+              <input class="form-check-input" id="rtype2" type="radio" name="registration_type" formControlName="registration_type" value="Exit">
+              <label for="rtype2" class="form-check-label">
                 Exit
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" name="registration_type" formControlName="registration_type" value="Early Exit">
-              <label class="form-check-label">
+              <input class="form-check-input" id="rtype3" type="radio" name="registration_type" formControlName="registration_type" value="Early Exit">
+              <label for="rtype3" class="form-check-label">
                 Early Exit
               </label>
             </div>

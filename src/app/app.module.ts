@@ -10,6 +10,8 @@ import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-b
 import { environment } from "src/environments/environment";
 import { AdminComponent } from './admin/admin.component';
 import { AttendanceComponent } from './attendance/attendance.component';
+import { DatepickerPopupComponent } from './Shared/datepicker-popup/datepicker-popup.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
@@ -26,7 +28,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
   declarations: [
     AppComponent,
     AdminComponent,
-    AttendanceComponent
+    AttendanceComponent,
+    DatepickerPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MsalModule 
+    MsalModule,
+    NgbModule 
   ],
   providers: [{
     provide: MSAL_INSTANCE,

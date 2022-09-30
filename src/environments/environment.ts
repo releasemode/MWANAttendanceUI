@@ -10,6 +10,7 @@ export const environment = {
   },
   radius:25,
   baseUrl:'https://localhost:44316',
+  //baseUrl:'https://azeemmwan-001-site1.dtempurl.com',
   authority:"https://login.microsoftonline.com/166981dd-3c0c-41a1-acb5-20c80087960d",
   uiClienId: "b517f1d4-889c-4f5e-b98f-b99a857fb503",
   redirectUrl: "http://localhost:4200",
