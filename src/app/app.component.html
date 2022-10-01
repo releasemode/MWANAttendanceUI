@@ -37,6 +37,49 @@
   </div>
 </nav>
 </div>
+<div class="h-100 d-flex  align-items-center justify-content-center" *ngIf="!isUserLoggedIn()">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-10 text-center" >
+              <h1 style="font-size:40pt;">Register your Attendance</h1>
+           
+          </div>
+          <br/>
+          <div class="row-5 text-center">
+          
+            <p>Login and register your presence<br>
+             Please make sure location is turned on your mobile phone.  
+               </p>
+              <!-- <form id="subscribeForLaunch" class="input-group">
+                  <input type="email" class="form-control email" style="background:rgba(255,255,255,0.8);" required="required" placeholder="Email" />
+                  <button class="btn btn-info" onclick="subscribeRelease(); return false;">Submit!</button> 
+              </form> -->
+              <a routerLink="" class="btn btn-primary" (click)="login()" >Login</a>
+          </div>  
+      </div>
+  </div>
+</div>
+<div class="h-100 d-flex  align-items-center justify-content-center" *ngIf="isUserLoggedIn()">
+  <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-10 text-center" >
+              <h1 style="font-size:40pt;">Welcome {{empName}}</h1>
+           
+          </div>
+          <br/>
+         
+          <div class="row-5 text-center">
+          
+            
+              <!-- <form id="subscribeForLaunch" class="input-group">
+                  <input type="email" class="form-control email" style="background:rgba(255,255,255,0.8);" required="required" placeholder="Email" />
+                  <button class="btn btn-info" onclick="subscribeRelease(); return false;">Submit!</button> 
+              </form> -->
+              <a routerLink="/" class="btn btn-primary" *ngIf="isUserLoggedIn() && enableWelcomeMessage()" >Register your attendance</a>
+          </div>  
+      </div>
+  </div>
+</div>
 <!-- <div class="my-5" *ngIf="!loading && isUserLoggedIn()">
 
   <div class="container" *ngIf="distance && distance<=allowedRadius && allowedDevice">

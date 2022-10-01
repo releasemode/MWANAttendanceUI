@@ -56,7 +56,7 @@ export class AttendanceComponent implements OnInit {
 
   setLoginDisplay() {
     // console.log(this.msalService.instance.getAllAccounts().length);
-     console.log(this.msalService.instance.getAllAccounts());
+    // console.log(this.msalService.instance.getAllAccounts());
 
     if (this.msalService.instance.getAllAccounts().length > 0) {
 
@@ -177,7 +177,7 @@ export class AttendanceComponent implements OnInit {
   }
   
   async submitForm() {
-    console.log(this.form.value)
+   // console.log(this.form.value)
     
     this.submitting = true
     try {
@@ -192,12 +192,12 @@ export class AttendanceComponent implements OnInit {
             CreateDateTime:new Date().toISOString()
           }
         
-      console.log(attendanceModel);
+     // console.log(attendanceModel);
 //      let res = await this.http.post(environment.baseUrl + "/api/v1/account/users", this.form.value).toPromise()
       let res = await this.http.post(environment.baseUrl + "/api/employeeattendance", attendanceModel).toPromise()
       
       // let users=await this.http.get("http://localhost:4000/api/v1/account/users").toPromise()
-      console.log(res)
+      // console.log(res)
       this.form.reset({})
       this.submitting = false
       alert("Submitted Successfully")

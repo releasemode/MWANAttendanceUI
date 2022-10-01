@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
@@ -8,12 +8,13 @@ import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { AttandanceModel } from './AttandanceModel';  
 import { DATE_PIPE_DEFAULT_TIMEZONE } from '@angular/common';
+import { Router,NavigationEnd, NavigationCancel  } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit,OnChanges {
   title = 'location-form';
   distance: any = null
   form: any = null
@@ -27,19 +28,47 @@ export class AppComponent implements OnInit {
   homeAccountId: string | undefined = '';
   empAttendanceLat:string='';
   empAttendanceLong:string='';
+  enableRegisterButton: boolean=true;
   private readonly _destroying$ = new Subject<void>();
 
-  constructor(public fb: FormBuilder, public http: HttpClient, private msalService: MsalService, private msalBroadcastService: MsalBroadcastService) {
+  constructor(public fb: FormBuilder, public http: HttpClient, private msalService: MsalService, private msalBroadcastService: MsalBroadcastService,private router: Router) {
 
-    this.getLocation()
+    this.getLocation();
     this.setAllowedDevice();
     if (!this.isUserLoggedIn()) {
       this.loginLinkText = "Login";
     }
+    this.enableRegisterButton=true;
+    this.enableWelcomeMessage();
+
+
 
   }
 
+  enableWelcomeMessage(){
+    console.log(this.router.events);
+    this.router.events.forEach((event) => {
+     
+     if(event instanceof NavigationEnd) {
+        console.log(event.url);
+        if(event.url =="/" || '/attendance'){
+          console.log("i am returning false");
+          this.enableRegisterButton=false;
+          return  this.enableRegisterButton;
+        
+        }
+      }
+     return  this.enableRegisterButton;
+    });
+   
+     return this.enableRegisterButton;
+  }
+  ngOnChanges(){
+    this.enableWelcomeMessage();
+  }
   ngOnInit() {
+
+
 
     this.msalBroadcastService.inProgress$
       .pipe(
@@ -59,7 +88,7 @@ export class AppComponent implements OnInit {
   }
   setLoginDisplay() {
     // console.log(this.msalService.instance.getAllAccounts().length);
-     console.log(this.msalService.instance.getAllAccounts());
+
 
     if (this.msalService.instance.getAllAccounts().length > 0) {
 
@@ -180,7 +209,7 @@ export class AppComponent implements OnInit {
   }
 
   async submitForm() {
-    console.log(this.form.value)
+    // console.log(this.form.value)
     
     this.submitting = true
     try {
@@ -196,12 +225,12 @@ export class AppComponent implements OnInit {
 
           }
         
-      console.log(attendanceModel);
+      // console.log(attendanceModel);
 //      let res = await this.http.post(environment.baseUrl + "/api/v1/account/users", this.form.value).toPromise()
       let res = await this.http.post(environment.baseUrl + "/api/employeeattendance", attendanceModel).toPromise()
       
       // let users=await this.http.get("http://localhost:4000/api/v1/account/users").toPromise()
-      console.log(res)
+      // console.log(res)
       this.form.reset({})
       this.submitting = false
       alert("Submitted Successfully")

@@ -1,7 +1,5 @@
 
 <div class="container">
- 
- 
    <a style="cursor: pointer" (click)="exportexcel()">
     <button class="btn btn-primary">Export</button>
    </a>
@@ -9,21 +7,19 @@
         <table class="table" id="excel-table">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Employee Code</th>
                 <th scope="col">Name</th>
                 <th scope="col">Department</th>
-                <th scope="col">Attendance Type</th>
-                <th scope="col">Submission Time</th>
+                <th scope="col">Entry Time</th>
+                <th scope="col">Exit Time</th>
                 
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let attendance of attendances">
-                <th scope="row">{{attendance.employeeCode}}</th>
-                <td>{{attendance.name}}</td>
+                <th scope="row">{{attendance.name}}</th>
                 <td>{{attendance.department}}</td>
-                <td>{{attendance.registrationType}}</td>
-                <td>{{attendance.createDateTime}}</td>
+                <td>{{attendance.entryTime}}</td>
+                <td>{{attendance.exitTime}}</td>
               
               </tr>
             
