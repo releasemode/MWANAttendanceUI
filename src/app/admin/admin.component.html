@@ -7,10 +7,10 @@
         <table class="table" id="excel-table">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Department</th>
-                <th scope="col">Entry Time</th>
-                <th scope="col">Exit Time</th>
+                <th scope="col">الاسم</th>
+                <th scope="col">الادارة </th>
+                <th scope="col">وقت الدخول</th>
+                <th scope="col">وقت الخروج</th>
                 
               </tr>
             </thead>
@@ -18,8 +18,8 @@
               <tr *ngFor="let attendance of attendances">
                 <th scope="row">{{attendance.name}}</th>
                 <td>{{attendance.department}}</td>
-                <td>{{attendance.entryTime}}</td>
-                <td>{{attendance.exitTime}}</td>
+                <td>{{attendance.entryTime |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{attendance.exitTime  |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
               
               </tr>
             

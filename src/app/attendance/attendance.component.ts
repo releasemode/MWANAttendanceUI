@@ -7,6 +7,7 @@ import { EventMessage, EventType, InteractionStatus, AuthenticationResult } from
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { AttandanceModel } from '../AttandanceModel';  
+import { apilogin } from './apilogin.model';
 
 @Component({
   selector: 'app-attendance',
@@ -30,9 +31,11 @@ export class AttendanceComponent implements OnInit {
   homeAccountId: string | undefined = '';
   empAttendanceLat:string='';
   empAttendanceLong:string='';
+  
   private readonly _destroying$ = new Subject<void>();
 
   constructor(public fb: FormBuilder, public http: HttpClient, private msalService: MsalService, private msalBroadcastService: MsalBroadcastService) {
+   
 
     this.getLocation()
     this.setAllowedDevice();
@@ -177,9 +180,11 @@ export class AttendanceComponent implements OnInit {
   }
   
   async submitForm() {
-   // console.log(this.form.value)
-    
-    this.submitting = true
+
+  
+    this.submitting = true;
+    var tzoffset = (new Date()).getTimezoneOffset() * 60000; //offset in milliseconds
+    var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
     try {
           let attendanceModel:AttandanceModel={
             Name:this.empName,
@@ -189,21 +194,30 @@ export class AttendanceComponent implements OnInit {
             ContractType:this.form.value.contract_type,
             Latitude:this.empAttendanceLat.toString(),
             longitude: this.empAttendanceLong.toString(),
-            CreateDateTime:new Date().toISOString()
+            CreateDateTime:localISOTime
+          }
+
+          let apiModel:apilogin={
+            username:'aAQWEEEESSSTT@0987654321'
           }
         
-     // console.log(attendanceModel);
-//      let res = await this.http.post(environment.baseUrl + "/api/v1/account/users", this.form.value).toPromise()
+        if(this.form.value.department!='' && this.form.value.registration_type!=''){
+       let tokenResponse = await this.http.post(environment.baseUrl+"/api/login/userlogin",apiModel).toPromise();
+       console.log(tokenResponse);
       let res = await this.http.post(environment.baseUrl + "/api/employeeattendance", attendanceModel).toPromise()
       
       // let users=await this.http.get("http://localhost:4000/api/v1/account/users").toPromise()
       // console.log(res)
       this.form.reset({})
       this.submitting = false
-      alert("Submitted Successfully")
+        alert("تم تسجيل الحضور بنجاح");
+        }else{
+          
+          alert("الادارة ونوع التسجيل (دخول أو خروج) إلزامي ليتم ملؤه");
+        }
     } catch (err) {
       console.log(err);
-      alert("Error Occoured")
+      alert("خطأ في النظام")
     }
   }
 }

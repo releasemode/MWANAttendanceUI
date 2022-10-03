@@ -4,54 +4,83 @@
       <div class="card p-3 shadow-sm">
         <form [formGroup]="form">
           <div class="row">
-            <h3 class="text-center">Employees Attendance -- {{distance}}</h3>
+            <h3 class="text-center">حضور الموظف -- {{distance}}</h3>
           </div>
           
           <div class="form-group">
-            <label for="email">Employee Code</label>
-            <input type="text" class="form-control" formControlName="emp_code" placeholder="Enter Employee Code">
+            <label for="email">رقم الهوية الوطنية</label>
+            <input type="text" class="form-control" formControlName="emp_code" placeholder=""
+             
+            >
+          
           </div>
    
           <div class="form-group">
-            <label for="contract_type">Type of Contract</label>
+            <label for="contract_type">نوع العقد</label>
             <div class="form-check">
-              <input class="form-check-input" type="radio" id="ctype1" name="contract_type" formControlName="contract_type" value="full" checked>
+              <input class="form-check-input" type="radio" id="ctype1" name="contract_type" formControlName="contract_type" value="موظف موان" checked>
               <label for="ctype1" class="form-check-label">
-                Contract Type 1
+                موظف موان
               </label>
            
             </div>
             <div class="form-check">
-              <input class="form-check-input" type="radio" id="ctype2" formControlName="contract_type" name="contract_type" value="partial">
+              <input class="form-check-input" type="radio" id="ctype2" formControlName="contract_type" name="contract_type" value="عقود – معار- متدرب">
               <label for="ctype2" class="form-check-label">
-                Contract Type 2
+                عقود – معار- متدرب
               </label>
             </div>
           </div>
     
           <div class="form-group">
-            <label for="email">Department</label>
+            <label for="department">الادارة</label>
             <select class="form-control" formControlName="department" >
               <option selected disabled>Choose...</option>
-              <option value="HR">HR</option>
-              <option value="Digital Solutions">Digital Solutions</option>
-              <option value="Communications">Communications</option>
+              <option value="مكتب الرئيس التنفيذي">مكتب الرئيس التنفيذي</option>
+              <option value="شؤون المركز">شؤون المركز</option>
+              <option value="الموارد البشرية والشؤون الإدارية ">الموارد البشرية والشؤون الإدارية </option>
+              <option value="الإتصالات الإدارية">الإتصالات الإدارية</option>
+              <option value="الإدارة العامة للأنظمة والتراخيص">الإدارة العامة للأنظمة والتراخيص</option>
+              <option value="إدارة الشؤون الفنية">إدارة الشؤون الفنية</option>
+              <option value="إدارة العقود والمشتريات">إدارة العقود والمشتريات</option>
+              <option value="إدارة التواصل المؤسسي">إدارة التواصل المؤسسي</option>
+              <option value="إدارة الشؤون القانونية">إدارة الشؤون القانونية</option>
+              <option value="إدارة المخاطر">إدارة المخاطر</option>
+              <option value="الإدارة العامة لتطوير القطاع">الإدارة العامة لتطوير القطاع</option>
+              <option value="إدارة مكتب المشاريع">إدارة مكتب المشاريع</option>
+              <option value="الاداراة العامة للحلول الرقمية">الاداراة العامة للحلول الرقمية</option>
+              <option value="الأمن السيبراني">الأمن السيبراني</option>
+              <option value="الإدارة المالية">الإدارة المالية</option>
+              <option value="إدارة الأنظمة والتشريعات">إدارة الأنظمة والتشريعات</option>
+              <option value="الإدارة العامة للمراجعة الداخلية">الإدارة العامة للمراجعة الداخلية</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="registration_type">Type of registration</label>
+            <label for="registration_type">نوع </label>
             <div class="form-check">
-              <input class="form-check-input" id="rtype1" type="radio" name="registration_type" formControlName="registration_type" value="Entry" checked>
+              <input class="form-check-input" id="rtype1" type="radio" formControlName="registration_type" value="لدخول">
               <label for="rtype1" class="form-check-label">
-                Entry
+                لدخول
               </label>
             </div>
             <div class="form-check">
-              <input class="form-check-input" id="rtype2" type="radio" name="registration_type" formControlName="registration_type" value="Exit">
+              <input class="form-check-input" id="rtype2" type="radio" formControlName="registration_type" value="الخروج">
               <label for="rtype2" class="form-check-label">
-                Exit
+                الخروج
               </label>
             </div>
+            <!-- <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+              <label class="form-check-label" for="flexRadioDefault1">
+                Default radio
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+              <label class="form-check-label" for="flexRadioDefault2">
+                Default checked radio
+              </label>
+            </div> -->
             <!-- <div class="form-check">
               <input class="form-check-input" id="rtype3" type="radio" name="registration_type" formControlName="registration_type" value="Early Exit">
               <label for="rtype3" class="form-check-label">
@@ -62,7 +91,7 @@
          <div class="row text-center">
           <button (click)="submitForm()" 
          
-          class="btn btn-primary text-center w-25 mx-auto">{{submitting?'Loading..':"Submit"}}</button>  
+          class="btn btn-primary text-center w-25 mx-auto">يسجل</button>  
          </div>
          <!-- [disabled]="!form.valid || submitting" -->
         </form>
@@ -88,7 +117,7 @@
    
       <div class="alert alert-danger" role="alert">
   
-        You are outside designated area, Please visit the office building to make your attendance. {{distance}}
+        يجب أن تكون داخل مبنى المكاتب لتسجيل حضورك. {{distance}}
       </div>
     </div>
   
@@ -96,6 +125,6 @@
     
     <div class="container text-center" *ngIf="!locationAccess">
       <div class="alert alert-danger" role="alert">
-        You should allow location to register your attendance.
+        الرجاء السماح للموقع في المتصفح الخاص بك لتسجيل الحضور
       </div>
     </div>

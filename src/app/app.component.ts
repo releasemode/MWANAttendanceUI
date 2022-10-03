@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
-import { EventMessage, EventType, InteractionStatus, AuthenticationResult } from '@azure/msal-browser';
+import { EventMessage, EventType, InteractionStatus, AuthenticationResult, EndSessionRequest } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { AttandanceModel } from './AttandanceModel';  
@@ -29,6 +29,7 @@ export class AppComponent implements OnInit,OnChanges {
   empAttendanceLat:string='';
   empAttendanceLong:string='';
   enableRegisterButton: boolean=true;
+ 
   private readonly _destroying$ = new Subject<void>();
 
   constructor(public fb: FormBuilder, public http: HttpClient, private msalService: MsalService, private msalBroadcastService: MsalBroadcastService,private router: Router) {
@@ -41,18 +42,20 @@ export class AppComponent implements OnInit,OnChanges {
     this.enableRegisterButton=true;
     this.enableWelcomeMessage();
 
+    
+
 
 
   }
 
   enableWelcomeMessage(){
-    console.log(this.router.events);
+   
     this.router.events.forEach((event) => {
      
      if(event instanceof NavigationEnd) {
-        console.log(event.url);
+        
         if(event.url =="/" || '/attendance'){
-          console.log("i am returning false");
+      
           this.enableRegisterButton=false;
           return  this.enableRegisterButton;
         
@@ -80,7 +83,7 @@ export class AppComponent implements OnInit,OnChanges {
       })
   }
   isReportsAllowed(){
-    if(this.empName=='Ahmed A. Anzari'){
+    if(this.empName=='Ahmed A. Anzari' || this.empName=='Ahmed M. AlFaryan'){
        return true;
     }else{
       return false;
@@ -138,6 +141,8 @@ export class AppComponent implements OnInit,OnChanges {
 
 
 
+
+
     //myMsal.logoutRedirect(logoutRequest);
 
   }
@@ -173,10 +178,10 @@ export class AppComponent implements OnInit,OnChanges {
         if (position) {
           this.empAttendanceLat=position.coords.latitude;
           this.empAttendanceLong=position.coords.longitude;
-          console.log("Latitude: " + position.coords.latitude +
-            "Longitude: " + position.coords.longitude);
+          // console.log("Latitude: " + position.coords.latitude +
+          //   "Longitude: " + position.coords.longitude);
           this.distance = this.calcCrow(position.coords.latitude, position.coords.longitude, environment.centre.lat, environment.centre.lng).toFixed(1)
-          console.log(this.distance)
+        
         }
         this.loading = false
       },
