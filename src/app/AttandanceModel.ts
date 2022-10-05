@@ -8,7 +8,15 @@ export interface AttandanceModel{
         longitude:String;
         CreateDateTime:String;
 
-}
+};
+
+export interface StatusModel{
+        name:string;
+        department:string;
+        entryTime:string;
+        exitTime:string;
+        earlyExitTime:string;
+};
 
 export interface finalDate{
         year:Number,

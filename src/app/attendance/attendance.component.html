@@ -1,21 +1,15 @@
 <div class="my-5" *ngIf="!loading && isUserLoggedIn()">
-
-    <div class="container" *ngIf="distance && distance<=allowedRadius && allowedDevice">
+    
+    <div class="container-fluid" *ngIf="distance && distance<=allowedRadius && allowedDevice">
       <div class="card p-3 shadow-sm">
+        <div class="form-group">
         <form [formGroup]="form">
           <div class="row">
-            <h3 class="text-center">حضور الموظف -- {{distance}}</h3>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">رقم الهوية الوطنية</label>
-            <input type="text" class="form-control" formControlName="emp_code" placeholder=""
-             
-            >
-          
-          </div>
+           
+         
+         
    
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="contract_type">نوع العقد</label>
             <div class="form-check">
               <input class="form-check-input" type="radio" id="ctype1" name="contract_type" formControlName="contract_type" value="موظف موان" checked>
@@ -30,79 +24,43 @@
                 عقود – معار- متدرب
               </label>
             </div>
-          </div>
+          </div> -->
     
-          <div class="form-group">
-            <label for="department">الادارة</label>
-            <select class="form-control" formControlName="department" >
-              <option selected disabled>Choose...</option>
-              <option value="مكتب الرئيس التنفيذي">مكتب الرئيس التنفيذي</option>
-              <option value="شؤون المركز">شؤون المركز</option>
-              <option value="الموارد البشرية والشؤون الإدارية ">الموارد البشرية والشؤون الإدارية </option>
-              <option value="الإتصالات الإدارية">الإتصالات الإدارية</option>
-              <option value="الإدارة العامة للأنظمة والتراخيص">الإدارة العامة للأنظمة والتراخيص</option>
-              <option value="إدارة الشؤون الفنية">إدارة الشؤون الفنية</option>
-              <option value="إدارة العقود والمشتريات">إدارة العقود والمشتريات</option>
-              <option value="إدارة التواصل المؤسسي">إدارة التواصل المؤسسي</option>
-              <option value="إدارة الشؤون القانونية">إدارة الشؤون القانونية</option>
-              <option value="إدارة المخاطر">إدارة المخاطر</option>
-              <option value="الإدارة العامة لتطوير القطاع">الإدارة العامة لتطوير القطاع</option>
-              <option value="إدارة مكتب المشاريع">إدارة مكتب المشاريع</option>
-              <option value="الاداراة العامة للحلول الرقمية">الاداراة العامة للحلول الرقمية</option>
-              <option value="الأمن السيبراني">الأمن السيبراني</option>
-              <option value="الإدارة المالية">الإدارة المالية</option>
-              <option value="إدارة الأنظمة والتشريعات">إدارة الأنظمة والتشريعات</option>
-              <option value="الإدارة العامة للمراجعة الداخلية">الإدارة العامة للمراجعة الداخلية</option>
-            </select>
+          <div class="container text-center" *ngIf="attendanceStatus[0]">
+            <div class="row">
+            <div class="alert alert-info" role="alert">
+        
+              <div *ngIf="attendanceStatus[0].entryTime"> وقت الدخول: {{attendanceStatus[0].entryTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
+              <div *ngIf="attendanceStatus[0].exitTime">وقت الخروج: {{attendanceStatus[0].exitTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
+              <div *ngIf="attendanceStatus[0].earlyExitTime">إستئذان: {{attendanceStatus[0].earlyExitTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
+           
+            </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="registration_type">نوع </label>
-            <div class="form-check">
-              <input class="form-check-input" id="rtype1" type="radio" formControlName="registration_type" value="لدخول">
-              <label for="rtype1" class="form-check-label">
-                لدخول
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" id="rtype2" type="radio" formControlName="registration_type" value="الخروج">
-              <label for="rtype2" class="form-check-label">
-                الخروج
-              </label>
-            </div>
-            <!-- <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-              <label class="form-check-label" for="flexRadioDefault1">
-                Default radio
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-              <label class="form-check-label" for="flexRadioDefault2">
-                Default checked radio
-              </label>
-            </div> -->
-            <!-- <div class="form-check">
-              <input class="form-check-input" id="rtype3" type="radio" name="registration_type" formControlName="registration_type" value="Early Exit">
-              <label for="rtype3" class="form-check-label">
-                Early Exit
-              </label>
-            </div> -->
-          </div>
+        
+    
          <div class="row text-center">
-          <button (click)="submitForm()" 
+          <button (click)="submitForm('لدخول')"
          
-          class="btn btn-primary text-center w-25 mx-auto">يسجل</button>  
+          class="btn btn-primary text-center w-25 mx-auto" [disabled]="submitting || empRegisteredEntry">لدخول</button>  
+          <button (click)="submitForm('الخروج')" [disabled]="submitting"
+         
+          class="btn btn-primary text-center w-25 mx-auto" [disabled]="submitting" >الخروج</button> 
+          <button (click)="submitForm('إستئذان')"
+         
+          class="btn btn-warning text-center w-25 mx-auto" [disabled]="submitting">إستئذان</button> 
          </div>
+        </div>
          <!-- [disabled]="!form.valid || submitting" -->
         </form>
+        </div>
       </div>
     </div>
     </div>
-
+  
     <div class="container text-center" *ngIf="!isUserLoggedIn">
         <div class="alert alert-danger" role="alert">
-  
-           sorry you should login first..
+             sorry you should login first..
           </div>
     </div>
     <div class="container text-center" *ngIf="!allowedDevice">
@@ -125,6 +83,6 @@
     
     <div class="container text-center" *ngIf="!locationAccess">
       <div class="alert alert-danger" role="alert">
-        الرجاء السماح للموقع في المتصفح الخاص بك لتسجيل الحضور
+        ارجو تفعيل خاصية الوصول الى الموقع الجغرافي
       </div>
     </div>

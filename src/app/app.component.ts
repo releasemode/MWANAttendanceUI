@@ -9,10 +9,12 @@ import { filter, takeUntil } from 'rxjs/operators';
 import { AttandanceModel } from './AttandanceModel';  
 import { DATE_PIPE_DEFAULT_TIMEZONE } from '@angular/common';
 import { Router,NavigationEnd, NavigationCancel  } from '@angular/router';
+import { EmployeesInfoService } from './Employees.Service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  providers:[EmployeesInfoService]
 })
 export class AppComponent implements OnInit,OnChanges {
   title = 'location-form';
@@ -25,6 +27,7 @@ export class AppComponent implements OnInit,OnChanges {
   allowedDevice = true;
   loginLinkText: string = "Logout";
   empName: string | undefined = '';
+  empDepartment:string='';
   homeAccountId: string | undefined = '';
   empAttendanceLat:string='';
   empAttendanceLong:string='';
@@ -32,7 +35,9 @@ export class AppComponent implements OnInit,OnChanges {
  
   private readonly _destroying$ = new Subject<void>();
 
-  constructor(public fb: FormBuilder, public http: HttpClient, private msalService: MsalService, private msalBroadcastService: MsalBroadcastService,private router: Router) {
+  constructor(public fb: FormBuilder, public http: HttpClient, private msalService: MsalService, 
+              private msalBroadcastService: MsalBroadcastService,private router: Router,
+              private empInfoService:EmployeesInfoService) {
 
     this.getLocation();
     this.setAllowedDevice();
@@ -99,6 +104,8 @@ export class AppComponent implements OnInit,OnChanges {
 
     }
 
+
+
   }
 
   login() {
@@ -112,7 +119,7 @@ export class AppComponent implements OnInit,OnChanges {
 
 
 
-    this.msalService.loginRedirect();
+    this.msalService.loginRedirect({scopes:['User.Read','profile']});
 
 
     // this.msalService.loginPopup().subscribe((response:AuthenticationResult)=>{
@@ -150,6 +157,8 @@ export class AppComponent implements OnInit,OnChanges {
 
     if (this.msalService.instance.getActiveAccount() != null) {
       this.empName = this.msalService.instance.getActiveAccount()?.name?.toString();
+      this.empDepartment = this.empInfoService.getEmployeeInfoByName(this.empName?this.empName:'');
+      //console.log(this.empDepartment);
       return true;
     }
     return false;

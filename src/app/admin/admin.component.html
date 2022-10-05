@@ -11,6 +11,7 @@
                 <th scope="col">الادارة </th>
                 <th scope="col">وقت الدخول</th>
                 <th scope="col">وقت الخروج</th>
+                <th scope="col">إستئذان</th>
                 
               </tr>
             </thead>
@@ -20,6 +21,7 @@
                 <td>{{attendance.department}}</td>
                 <td>{{attendance.entryTime |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
                 <td>{{attendance.exitTime  |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{attendance.earlyExitTime  |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
               
               </tr>
             
