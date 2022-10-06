@@ -80,8 +80,8 @@ export class AttendanceComponent implements OnInit {
   }
 
   async setButtonDisplay(){
-
-    let attendStatusRes = await this.http.get(environment.baseUrl + "/api/employeeattendance/AttendanceStatus?name="+this.empName).toPromise()  
+    let currentDate= this.utilityService.formatDate(new Date());
+    let attendStatusRes = await this.http.get(environment.baseUrl + "/api/employeeattendance/AttendanceStatus?name="+this.empName+"&&createDate="+currentDate).toPromise()  
     console.log(attendStatusRes);
     if(attendStatusRes!=null){
       this.attendanceStatus = attendStatusRes?attendStatusRes:[];
@@ -265,6 +265,8 @@ export class AttendanceComponent implements OnInit {
       this.form.reset({});
       this.submitting = true;
       alert('تم تسجيل الحضور بنجاح');
+      this.submitting=false;
+      this.setButtonDisplay();
     } catch (err) {
       console.log(err);
       alert('خطأ في النظام');

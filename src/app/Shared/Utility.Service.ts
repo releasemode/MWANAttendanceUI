@@ -15,5 +15,24 @@ export class UtilityService {
     console.log("isAllowedEntry",dt >= dt1 && dt <= dt2);
     return (dt >= dt1 && dt <= dt2) ? true : false;
                                       
-   } 
+   };
+   getLocalDate(){
+    var tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
+    var localISOTime = new Date(Date.now() - tzoffset)
+      .toISOString()
+      .slice(0, -1);
+      return localISOTime;
+   };
+
+   formatDate(date:any) {
+    return [
+      date.getFullYear(),
+      this.padTo2Digits(date.getMonth() + 1),
+      this.padTo2Digits(date.getDate()),
+    ].join('-');
+  };
+  padTo2Digits(num:number) {
+    return num.toString().padStart(2, '0');
+  }
+  
 }
