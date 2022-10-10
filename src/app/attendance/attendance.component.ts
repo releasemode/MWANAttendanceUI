@@ -250,10 +250,7 @@ export class AttendanceComponent implements OnInit {
         username: 'aAQWEEEESSSTT@0987654321',
       };
 
-      // if (attendanceType == 'لدخول' && !this.isAllowedEntry()) {
-      //   alert('unable to register entry');
-      //   return;
-      // }
+      
 
       // let tokenResponse = await this.http.post(environment.baseUrl+"/api/login/userlogin",apiModel).toPromise();
       let res = await this.http
@@ -264,7 +261,12 @@ export class AttendanceComponent implements OnInit {
       // console.log(res)
       this.form.reset({});
       this.submitting = true;
-      alert('تم تسجيل الحضور بنجاح');
+      if (attendanceType == 'لدخول' || attendanceType=='الخروج') {
+        alert('تم تسجيل الحضور بنجاح');
+      }else{
+        alert('تم تسجيل استئذان خروج مبكر')
+      }
+   
       this.submitting=false;
       this.setButtonDisplay();
     } catch (err) {

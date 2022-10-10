@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a routerLink=""  class="nav-link active" *ngIf="!isUserLoggedIn()" (click)="login()" >الدخول</a>
+          <a routerLink=""  class="nav-link active" *ngIf="!isUserLoggedIn()" (click)="login()" >الدخول للنظام</a>
           <a routerLink="" class="nav-link active" *ngIf="isUserLoggedIn()" (click)="logout()" >خروج</a>
         </li>
         <li class="nav-item">
@@ -41,20 +41,20 @@
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-10 text-center" >
-              <h1 style="font-size:25pt;">تسجيل الحضور</h1>
+              <h1 style="font-size:18pt;">نظام تسجيل الحضور والانصراف</h1>
            
           </div>
           <br/>
           <div class="row-5 text-center">
           
-            <p>تسجيل الدخول وتسجيل حضورك<br>
+            <p>تسجيل الدخول<br>
               ارجو تفعيل خاصية الوصول الى الموقع الجغرافي
                </p>
               <!-- <form id="subscribeForLaunch" class="input-group">
                   <input type="email" class="form-control email" style="background:rgba(255,255,255,0.8);" required="required" placeholder="Email" />
                   <button class="btn btn-info" onclick="subscribeRelease(); return false;">Submit!</button> 
               </form> -->
-              <a routerLink="" class="btn btn-primary" (click)="login()" >الدخول</a>
+              <a routerLink="" class="btn btn-primary" (click)="login()" >الدخول للنظام</a>
           </div>  
       </div>
   </div>
@@ -64,7 +64,7 @@
       <div class="row justify-content-center">
           <div class="col-10 text-center" >
               <h1 style="font-size:20pt;">مرحباً {{empName}}</h1>
-           
+              <h1 style="font-size:15pt">لتسجيل الحضور اضغط الزر </h1>
           </div>
           <br/>
          

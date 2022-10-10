@@ -88,7 +88,7 @@ export class AppComponent implements OnInit,OnChanges {
       })
   }
   isReportsAllowed(){
-    if(this.empName=='Ahmed A. Anzari' || this.empName=='Ahmed M. AlFaryan'){
+    if(this.empName=='Ahmed A. Anzari' || this.empName=='Ahmed M. AlFaryan' || this.empName=='Nada F. Almutairi' || this.empName =='Luluh K. Alsaawi'){
        return true;
     }else{
       return false;
@@ -119,7 +119,7 @@ export class AppComponent implements OnInit,OnChanges {
 
 
 
-    this.msalService.loginRedirect({scopes:['User.Read','profile']});
+    this.msalService.loginRedirect();
 
 
     // this.msalService.loginPopup().subscribe((response:AuthenticationResult)=>{
