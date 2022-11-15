@@ -15,7 +15,6 @@ export class DatepickerPopupComponent implements OnInit {
   }
   onChange(value:string){
     this.reportDate=value;
-    console.log(this.reportDate)
     this.dateSelected.emit(this.reportDate);
   }
 

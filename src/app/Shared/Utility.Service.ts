@@ -34,5 +34,20 @@ export class UtilityService {
   padTo2Digits(num:number) {
     return num.toString().padStart(2, '0');
   }
-  
+  calculateTime(entryTime:any,exitTime:any) {
+    if(new Date(exitTime).getFullYear()>2021 && new Date(entryTime).getFullYear()>2021){
+      var seconds = Math.floor((exitTime - (entryTime))/1000);
+      var minutes = Math.floor(seconds/60);
+      var hours = Math.floor(minutes/60);
+      var days = Math.floor(hours/24);
+      hours = hours-(days*24);
+      minutes = minutes-(days*24*60)-(hours*60);
+      seconds = seconds-(days*24*60*60)-(hours*60*60)-(minutes*60);
+      
+      return hours+':'+minutes+':'+seconds;
+     } else{
+      return 0;
+     }
+    
+  }
 }

@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { DatepickerPopupComponent } from './Shared/datepicker-popup/datepicker-popup.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NoRightClickDirective } from './Shared/no-right-click.directive';
 export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
     auth: {
@@ -29,7 +30,8 @@ export function MSALInstanceFactory(): IPublicClientApplication {
     AppComponent,
     AdminComponent,
     AttendanceComponent,
-    DatepickerPopupComponent
+    DatepickerPopupComponent,
+    NoRightClickDirective
   ],
   imports: [
     BrowserModule,

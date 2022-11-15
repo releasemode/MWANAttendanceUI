@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { FormBuilder, Validators } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse, JsonpInterceptor } from '@angular/common/http';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import {
   EventMessage,
@@ -11,7 +11,7 @@ import {
 } from '@azure/msal-browser';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { AttandanceModel, StatusModel } from '../AttandanceModel';
+import { AttandanceModel, CreateAttendanceResponse, StatusModel } from '../AttandanceModel';
 import { apilogin } from './apilogin.model';
 import { EmployeesInfoService } from '../Employees.Service';
 import { UtilityService } from '../Shared/Utility.Service';
@@ -38,10 +38,14 @@ export class AttendanceComponent implements OnInit {
   empAttendanceLong: string = '';
   empDepartment: string = '';
   isEntryAllowed: boolean = false;
-  attendanceStatus:any;
+  attendanceStatus:StatusModel[]=[];
+  attendanceStatusDiv=false;
   empRegisteredEntry:boolean=false;
   empRegisteredExit:boolean=false;
   empRegisteredEarlyExit:boolean=false;
+  PermissionClicked=false;
+  authenticationUrl=environment.authenticationUrl;
+ 
   private readonly _destroying$ = new Subject<void>();
 
 
@@ -54,8 +58,12 @@ export class AttendanceComponent implements OnInit {
     private empInfoService: EmployeesInfoService,
     private utilityService: UtilityService
   ) {
+   
+
+
     this.getLocation();
-    this.setAllowedDevice();
+    if(environment.checkBrowser == false)
+      this.setAllowedDevice();
 
     if (!this.isUserLoggedIn()) {
       this.loginLinkText = 'Login';
@@ -76,21 +84,36 @@ export class AttendanceComponent implements OnInit {
         this.setLoginDisplay();
       });
 
+
       
   }
 
   async setButtonDisplay(){
     let currentDate= this.utilityService.formatDate(new Date());
-    let attendStatusRes = await this.http.get(environment.baseUrl + "/api/employeeattendance/AttendanceStatus?name="+this.empName+"&&createDate="+currentDate).toPromise()  
-    console.log(attendStatusRes);
-    if(attendStatusRes!=null){
-      this.attendanceStatus = attendStatusRes?attendStatusRes:[];
-      this.attendanceStatus.forEach((element: StatusModel) => {
-        if(element.entryTime!=null) this.empRegisteredEntry = true;
-        if(element.exitTime!=null) this.empRegisteredExit = true;
-        if(element.earlyExitTime!=null) this.empRegisteredEarlyExit = true;
-      })
-    }
+    let loginInfo:any =await this.http.post(environment.baseUrl + this.authenticationUrl,environment.userInfo) .toPromise();
+    var headers = new HttpHeaders({ 'Authorization': 'Bearer ' + loginInfo.result.token });
+    this.http.get<StatusModel[]>(environment.baseUrl + "/api/employeeattendance/AttendanceStatus?name="+this.empName+"&&createDate="+currentDate,{ headers: headers })
+            .subscribe(
+              (response)=>{
+                
+                this.attendanceStatus=response;
+                
+              },
+              (error)=>this.attendanceStatusDiv=false,
+              ()=>{
+              
+                if(this.attendanceStatus!=null){
+                  
+                  this.attendanceStatusDiv=true;
+                  this.attendanceStatus.forEach((element: StatusModel) => {
+                    if(element.entryTime!=null) this.empRegisteredEntry = true;
+                    if(element.exitTime!=null) this.empRegisteredExit = true;
+                    if(element.earlyExitTime!=null) this.empRegisteredEarlyExit = true;
+                })
+              }
+              }
+            )
+   
     
    
   }
@@ -138,13 +161,14 @@ export class AttendanceComponent implements OnInit {
   }
   isUserLoggedIn(): boolean {
     if (this.msalService.instance.getActiveAccount() != null) {
-      console.log(this.msalService.instance.getActiveAccount());
+     // console.log(this.msalService.instance.getActiveAccount());
       this.empName = this.msalService.instance
         .getActiveAccount()
         ?.name?.toString();
-      this.empDepartment = this.empInfoService.getEmployeeInfoByName(
+      this.empDepartment= this.empInfoService.getEmployeeInfoByName(
         this.empName ? this.empName : ''
       );
+    
       return true;
     }
     return false;
@@ -155,15 +179,17 @@ export class AttendanceComponent implements OnInit {
   }
 
   setAllowedDevice() {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      this.allowedDevice = true;
-    } else {
-      this.allowedDevice = true; //make it false before production
-    }
+    // if (
+    //   /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    //     navigator.userAgent
+    //   )
+    // ) {
+      
+    //   this.allowedDevice = true;
+    // } else {
+    //   this.allowedDevice = false; //make it false before production
+    // }
+    this.allowedDevice = true;
   }
   getLocation() {
     this.form = this.fb.group({
@@ -230,10 +256,17 @@ export class AttendanceComponent implements OnInit {
 
   async submitForm(attendanceType: string) {
     this.submitting = true;
+    
     var tzoffset = new Date().getTimezoneOffset() * 60000; //offset in milliseconds
     var localISOTime = new Date(Date.now() - tzoffset)
       .toISOString()
       .slice(0, -1);
+  
+    this.getLocation();
+    if(this.distance>environment.radius){
+      alert("يرجى التأكد من وجودك في الموقع أو تحديث الصفحة.");
+      return;
+    }
     try {
       let attendanceModel: AttandanceModel = {
         Name: this.empName,
@@ -253,22 +286,28 @@ export class AttendanceComponent implements OnInit {
       
 
       // let tokenResponse = await this.http.post(environment.baseUrl+"/api/login/userlogin",apiModel).toPromise();
-      let res = await this.http
-        .post(environment.baseUrl + '/api/employeeattendance', attendanceModel)
-        .toPromise();
 
-      // let users=await this.http.get("http://localhost:4000/api/v1/account/users").toPromise()
-      // console.log(res)
+      let loginInfo:any =await this.http.post(environment.baseUrl +this.authenticationUrl,environment.userInfo) .toPromise();
+      var headers = new HttpHeaders({ 'Authorization': 'Bearer ' + loginInfo.result.token });
+    
+      this.http
+        .post<CreateAttendanceResponse>(environment.baseUrl + '/api/employeeattendance', attendanceModel,{headers:headers})
+        .subscribe(
+          (response:CreateAttendanceResponse)=>{
+            this.submitting=false;
+             alert(response.str);
+          },
+          (error:HttpErrorResponse)=>{
+            console.log(error);
+            alert(error.error)
+            this.submitting=false;
+          },
+          ()=>this.setButtonDisplay()
+        );
+
       this.form.reset({});
       this.submitting = true;
-      if (attendanceType == 'لدخول' || attendanceType=='الخروج') {
-        alert('تم تسجيل الحضور بنجاح');
-      }else{
-        alert('تم تسجيل استئذان خروج مبكر')
-      }
-   
-      this.submitting=false;
-      this.setButtonDisplay();
+     
     } catch (err) {
       console.log(err);
       alert('خطأ في النظام');

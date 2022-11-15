@@ -15,11 +15,16 @@ export interface StatusModel{
         department:string;
         entryTime:string;
         exitTime:string;
+        earlyEntryTime:string;
         earlyExitTime:string;
+};
+
+export interface CreateAttendanceResponse {
+        str: string;
 };
 
 export interface finalDate{
         year:Number,
         month:Number,
         day:Number
-      }
+      };

@@ -26,13 +26,14 @@
             </div>
           </div> -->
     
-          <div class="container text-center" *ngIf="attendanceStatus[0]">
+          <div class="container text-center" *ngIf="attendanceStatusDiv">
             <div class="row">
             <div class="alert alert-info" role="alert">
         
-              <div *ngIf="attendanceStatus[0].entryTime"> وقت الدخول: {{attendanceStatus[0].entryTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
-              <div *ngIf="attendanceStatus[0].exitTime">وقت الخروج: {{attendanceStatus[0].exitTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
-              <div *ngIf="attendanceStatus[0].earlyExitTime">إستئذان: {{attendanceStatus[0].earlyExitTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
+              <div *ngIf="attendanceStatus?attendanceStatus[0].entryTime:false"> وقت الدخول: {{attendanceStatus[0].entryTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
+              <div *ngIf="attendanceStatus?attendanceStatus[0].exitTime:false">وقت الخروج: {{attendanceStatus[0].exitTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/>
+              <!-- <div *ngIf="attendanceStatus?attendanceStatus[0].earlyEntryTime:false">إستئذان: {{attendanceStatus[0].earlyEntryTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/> -->
+              <div *ngIf="attendanceStatus?attendanceStatus[0].earlyExitTime:false">إستئذان: {{attendanceStatus[0].earlyExitTime |date: 'dd/MM/yyyy HH:mm:ss' }} </div> <br/> 
            
             </div>
             </div>
@@ -50,6 +51,22 @@
          
           class="btn btn-primary text-center w-25 mx-auto" [disabled]="submitting">إستئذان</button> 
          </div>
+      
+        
+        </div>
+      
+       <br/>
+        <div class="ontainer-fluid" *ngIf="PermissionClicked">
+          <div class="card p-3 shadow-sm">
+          <div class="row text-center" >
+           <button (click)="submitForm('EarlyEntry')"
+              class="btn btn-warning text-center w-25 mx-auto" [disabled]="submitting">Permission Entry</button>  
+           <button (click)="submitForm('EarlyExit')" [disabled]="submitting"
+          
+           class="btn btn-warning text-center w-25 mx-auto" [disabled]="submitting">Permission Exit</button>
+            
+          </div>
+           </div>
         </div>
          <!-- [disabled]="!form.valid || submitting" -->
         </form>

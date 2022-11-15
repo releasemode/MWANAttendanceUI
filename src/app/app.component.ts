@@ -77,7 +77,6 @@ export class AppComponent implements OnInit,OnChanges {
   ngOnInit() {
 
 
-
     this.msalBroadcastService.inProgress$
       .pipe(
         filter((status: InteractionStatus) => status === InteractionStatus.None),
@@ -93,6 +92,8 @@ export class AppComponent implements OnInit,OnChanges {
     }else{
       return false;
     }
+   // return true;
+    
   }
   setLoginDisplay() {
     // console.log(this.msalService.instance.getAllAccounts().length);

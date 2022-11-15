@@ -1,17 +1,55 @@
 
 <div class="container">
-   <a style="cursor: pointer" (click)="exportexcel()">
-    <button class="btn btn-primary">Export</button>
-   </a>
-   <ngbd-datepicker-popup (dateSelected)="onDateSelected($event)"></ngbd-datepicker-popup>
+  <div class="input-group">
+    <ngbd-datepicker-popup (dateSelected)="onDateSelected($event)" ></ngbd-datepicker-popup>
+   
+    <ngbd-datepicker-popup (dateSelected)="onToDateSelected($event)" class=" margin-left"></ngbd-datepicker-popup>
+   
+
+
+</div>
+<button  (click)="loadAttendanceData()" class="btn btn-primary">Load</button>
+<hr/>
+<div class="input-group">
+  <select name="months" id="months" [(ngModel)]="monthNumber">
+    <option value="1">January</option>
+    <option value="2">February</option>
+    <option value="3">March</option>
+    <option value="4">April</option>
+    <option value="5">May</option>
+    <option value="6">June</option>
+    <option value="7">July</option>
+    <option value="8">August</option>
+    <option value="9">September</option>
+    <option value="10">October</option>
+    <option value="11">November</option>
+    <option value="12">December</option>
+  </select>
+
+  <select name="year" id="year" [(ngModel)]="year" class=" margin-left">
+    <option value="2022">2022</option>
+    <option value="2023">2023</option>
+   
+  </select>
+</div>
+<br/>
+<hr/>
+  <button  (click)="loadAttendanceDataByMonth()" class="btn btn-primary">Load</button>
+   <button class="btn btn-primary margin-left" (click)="exportexcel()" *ngIf="isExportAllowed" [disabled]="ExportButtonDisabled">Export</button>
+   <hr/>
+        <h1 class="rtl" *ngIf="reportFetching">أرجو الإنتظار....</h1>
         <table class="table" id="excel-table">
             <thead class="thead-light">
               <tr>
                 <th scope="col">الاسم</th>
                 <th scope="col">الادارة </th>
+                <th scope="col">المدير المباشر</th>
+                <th scope="col">التاريخ</th>
                 <th scope="col">وقت الدخول</th>
                 <th scope="col">وقت الخروج</th>
                 <th scope="col">إستئذان</th>
+                <th scope="col">إجمالي عدد الساعات</th>
+              
                 
               </tr>
             </thead>
@@ -19,9 +57,12 @@
               <tr *ngFor="let attendance of attendances">
                 <th scope="row">{{attendance.name}}</th>
                 <td>{{attendance.department}}</td>
-                <td>{{attendance.entryTime |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
-                <td>{{attendance.exitTime  |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
-                <td>{{attendance.earlyExitTime  |date: 'dd/MM/yyyy HH:mm:ss'}}</td>
+                <td>{{getEmployeeManagerName(attendance.name)}}</td>
+                <td>{{attendance.entryTime |date: 'dd/MM/yyyy'}}</td>
+                <td>{{attendance.entryTime |date: 'hh:mm:ss a'}}</td>
+                <td>{{attendance.exitTime  |date: 'hh:mm:ss a'}}</td>
+                <td>{{attendance.earlyExitTime  |date: 'hh:mm:ss a'}}</td>
+                <td>{{calculateTotalHours(attendance.entryTime,attendance.exitTime)}}</td>
               
               </tr>
             

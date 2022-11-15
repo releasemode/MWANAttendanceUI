@@ -7,7 +7,7 @@ import { UserauthguardGuard } from './userauthguard.guard';
 const routes: Routes = [
   { path: '', redirectTo: 'attendance' },
   { path: 'attendance', component: AttendanceComponent,canActivate:[UserauthguardGuard] },
-  { path: 'reports',component: AdminComponent}
+  { path: 'reports/:empName',component: AdminComponent}
 ];
 
 @NgModule({

@@ -1,740 +1,1074 @@
 export class EmployeesInfoService{
    employeeAccounts=[
     {
-     "Name": "Abdulaziz AlOtaibi",
-     "Department": "    "
+        "Name": "Abdullah M. Alahmari",
+        "Department": "Centers Affairs",
+        "ManagerName": "Mohammad A. Alnafisah"
     },
     {
-     "Name": "Abdulaziz AlSalem",
-     "Department": "HR"
+        "Name": "Abdulghani A. AlAmri",
+        "Department": "Digital Solutions ",
+        "ManagerName": "Mohammed H. AlDarwish"
     },
     {
-     "Name": "Abdulaziz F. AlBakr",
-     "Department": "Technical Affairs Department"
+        "Name": "Abdulrahman M. Alangari",
+        "Department": "PMO",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Abdulelah  Alobaidi",
-     "Department": "Technical Affairs Department"
+        "Name": "Abdulrahman M.  AlAsim",
+        "Department": "Project management office",
+        "ManagerName": "Mohammed M. AlDosari"
     },
     {
-     "Name": "Abdulghani A. AlAmri",
-     "Department": "Digital Solutions "
+        "Name": "Abdulaziz F. AlBakr",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Salman F. AlShmarei"
     },
     {
-     "Name": "Abdullah A. AlShehry",
-     "Department": "Data Management Office"
+        "Name": "Abdulaziz Albassam",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdullah A. AlZahrani",
-     "Department": "Regulations and Legislation Management"
+        "Name": "Alanoud  Aldulaimi",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Abdullah AlShbeeb",
-     "Department": "CEO's Office"
+        "Name": "Ahmed A. Aldwahy",
+        "Department": "CEO office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Abdullah F. AlKhathran",
-     "Department": "     "
+        "Name": "Ahmed M. AlFaryan",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdulaziz AlSalem"
     },
     {
-     "Name": "Abdullah M. Alahmari",
-     "Department": "Centers Affairs"
+        "Name": "Abdulrahman A. AlFawaz",
+        "Department": "Risk Management",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Abdullah S. Alshmamri",
-     "Department": "financial management"
+        "Name": "Atheer K. Alharbi",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdullah S. AlYemni",
-     "Department": "Human Resources and Administration"
+        "Name": "Abdulmuhsen S. AlHudaib",
+        "Department": "CEO's Office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Abdullah S. AlZimami",
-     "Department": "Corporate Communication"
+        "Name": "Alanoud F. Alhuwishel",
+        "Department": "Corporate Communication",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdullah T. AlShuail",
-     "Department": "Technicairs Departmental Aff"
+        "Name": "Awad A. Ali",
+        "Department": "Corporate Communication",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdulmajeed S. AlAnazi",
-     "Department": "General Department of Internal Audit "
+        "Name": "Abdullah F. AlKhathran",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdulmuhsen S. AlHudaib",
-     "Department": "CEO's Office"
+        "Name": "Abdulaziz R. AlKhuwayr",
+        "Department": "    ",
+        "ManagerName": "Abeer M. AlMayouf"
     },
     {
-     "Name": "Abdulrahman A. AlFawaz",
-     "Department": "Risk Management"
+        "Name": "Ahmad H. Almaisari",
+        "Department": "Corporate Communication",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdulrahman A. Almajed",
-     "Department": "      "
+        "Name": "Abdulrahman A. Almajed",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abdulrahman M.  AlAsim",
-     "Department": "Project management office"
+        "Name": "Abeer M. AlMayouf",
+        "Department": "Beneficiary services and complaints",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Abeer M. AlMayouf",
-     "Department": "Beneficiary services and complaints"
+        "Name": "Alanood O. Almegren",
+        "Department": "Corporate Communication",
+        "ManagerName": "    "
     },
     {
-     "Name": "Abeer S. AlZahrani",
-     "Department": "General Department of Internal Audit "
+        "Name": "Abdullah A. AlMuqati",
+        "Department": "financial management",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Ahmad H. Almaisari",
-     "Department": "Corporate Communication"
+        "Name": "Alanood F. AlMutairi",
+        "Department": "Department of Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Ahmed A. Aldwahy",
-     "Department": "CEO office"
+        "Name": "Abdulelah  Alobaidi",
+        "Department": "Sector Development",
+        "ManagerName": "Musaed A. AlSudairi"
     },
     {
-     "Name": "Ahmed A. Anzari",
-     "Department": "Digital Solution"
+        "Name": "Abdulaziz AlOtaibi",
+        "Department": "General Administration of Regulations and Licensing",
+        "ManagerName": "Musfer R. AlYami"
     },
     {
-     "Name": "Ahmed M. AlFaryan",
-     "Department": "Human Resources and Administration"
+        "Name": "Aljazi A. AlSaif",
+        "Department": "PMO",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Alanood F. AlMutairi",
-     "Department": "Department of Legal Affairs"
+        "Name": "Abdulaziz AlSalem",
+        "Department": "HR",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Alanood O. Almegren",
-     "Department": "Corporate Communication"
+        "Name": "Ammar I. Alshanqiti",
+        "Department": "Sector ",
+        "ManagerName": "Bader Alhowaish"
     },
     {
-     "Name": "Alanoud  Aldulaimi",
-     "Department": "Sector Development"
+        "Name": "Abdullah AlShbeeb",
+        "Department": "CEO's Office",
+        "ManagerName": "    "
     },
     {
-     "Name": "Alanoud F. Alhuwishel",
-     "Department": "Corporate Communication"
+        "Name": "Atheer A. AlShehri",
+        "Department": "digital solutions",
+        "ManagerName": "Abdulghani A. AlAmri"
     },
     {
-     "Name": "Aleya Farhoud",
-     "Department": "    "
+        "Name": "Abdullah A. AlShehry",
+        "Department": "Data Management Office",
+        "ManagerName": "Majed M. AlOtaibi"
     },
     {
-     "Name": "Ali Bin Duhaim",
-     "Department": "Sector Development"
+        "Name": "Abdullah S. Alshmamri",
+        "Department": "financial management",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Aljazi A. AlSaif",
-     "Department": "PMO"
+        "Name": "Abdullah T. AlShuail",
+        "Department": "Sector Development",
+        "ManagerName": "Musaed A. AlSudairi"
     },
     {
-     "Name": "Aref O. AlShamari",
-     "Department": "Financial Management"
+        "Name": "Aref O. AlShamari",
+        "Department": "Financial Management",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Atheer A. AlShehri",
-     "Department": "digital solutions"
+        "Name": "Abdullah S. AlYemni",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Atheer K. Alharbi",
-     "Department": "Technical Affairs Department"
+        "Name": "Abdullah A. AlZahrani",
+        "Department": "Regulations and Legislation Management",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Awad A. Ali",
-     "Department": "Corporate Communication"
+        "Name": "Abdullah S. AlZimami",
+        "Department": "Corporate Communication",
+        "ManagerName": "Sultan F. AlHarthi"
     },
     {
-     "Name": "Bader A. Bintalib",
-     "Department": "Sector Development"
+        "Name": "Ahmed A. Anzari",
+        "Department": "Digital Solution",
+        "ManagerName": "Sami S. Shehri"
     },
     {
-     "Name": "Bader Alhowaish",
-     "Department": "Sector Development"
+        "Name": "Ali Bin Duhaim",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Bashair A. AlSmari",
-     "Department": "Regulations and Legislation Management"
+        "Name": "Aleya Farhoud",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Basmah A. AlJoufi",
-     "Department": "General Department of Internal Audit "
+        "Name": "Abdulmajeed Alanazi",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Basmah J. Alshamrani",
-     "Department": "Risk Mangamaent"
+        "Name": "Abdulrahman Mohammed",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Bayan G. AlSultan",
-     "Department": "Legal Affairs"
+        "Name": "Abdulmajeed S. AlAnazi",
+        "Department": "General Department of Internal Audit ",
+        "ManagerName": "Abdulrahman A. Almajed"
     },
     {
-     "Name": "Bilal Q. Alshabbah",
-     "Department": "IT Operations And Digital Services  "
+        "Name": "Abeer S. AlZahrani",
+        "Department": "General Department of Internal Audit ",
+        "ManagerName": "Abdulrahman A. Almajed"
     },
     {
-     "Name": "Dahmash A. AlDahmash",
-     "Department": "CEO's Office"
+        "Name": "Bayan Albalawi",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Doaa A. Aljalsi",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Bader Alhowaish",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Dr. Abdullah F. AlSebaei",
-     "Department": "Board of Directors"
+        "Name": "Basmah A. AlJoufi",
+        "Department": "General Department of Internal Audit ",
+        "ManagerName": "Abdulrahman A. Almajed"
     },
     {
-     "Name": "Dr. Abdullah F. AlSebaei",
-     "Department": "     "
+        "Name": "Bilal Q. Alshabbah",
+        "Department": "IT Operations And Digital Services  ",
+        "ManagerName": "Abdulghani A. AlAmri"
     },
     {
-     "Name": "Dr. Darren Perrin",
-     "Department": "CEO Office"
+        "Name": "Basmah J. Alshamrani",
+        "Department": "Risk Mangamaent",
+        "ManagerName": "Abdulrahman A. AlFawaz"
     },
     {
-     "Name": "Dr. Khaled S. AlHabshan",
-     "Department": "General Manager of Legal Affairs Department "
+        "Name": "Bashair A. AlSmari",
+        "Department": "Regulations and Legislation Management",
+        "ManagerName": "Abdullah A. AlZahrani"
     },
     {
-     "Name": "Dr. Nawaf I. Bilasi",
-     "Department": "CEO Office "
+        "Name": "Bayan G. AlSultan",
+        "Department": "Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Duaa H. Merah",
-     "Department": "CEO's Office"
+        "Name": "Bader A. Bintalib",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Eddy Ghanem",
-     "Department": "   "
+        "Name": "Dr. Abdullah F. AlSebaei",
+        "Department": "Board of Directors",
+        "ManagerName": "    "
     },
     {
-     "Name": "Elias G. BouHabib",
-     "Department": "    "
+        "Name": "Dahmash A. AlDahmash",
+        "Department": "Sector Development",
+        "ManagerName": "Ali Bin Duhaim"
     },
     {
-     "Name": "Fahad AlSohem",
-     "Department": "Centers Affairs"
+        "Name": "Doaa A. Aljalsi",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Sameer M. AlKerji"
     },
     {
-     "Name": "Fahad S. bin Madhi",
-     "Department": "Project Management Office"
+        "Name": "Duaa H. Merah",
+        "Department": "CEO's Office",
+        "ManagerName": "   "
     },
     {
-     "Name": "Faisal K. Abushaar",
-     "Department": "PMO"
+        "Name": "Dr. Darren Perrin",
+        "Department": "CEO Office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Faisal T. Daghistani",
-     "Department": "Technical Affairs Department"
+        "Name": "Elias G. BouHabib",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Farah Z. Fathallah",
-     "Department": "    "
+        "Name": "Eddy Ghanem",
+        "Department": "     ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Faten M. BinHalwan",
-     "Department": "Sector Development"
+        "Name": "Faisal K. Abushaar",
+        "Department": "PMO",
+        "ManagerName": "    "
     },
     {
-     "Name": "Fatimah M. AlKabbi",
-     "Department": "CEO's Office"
+        "Name": "Futoon F. AlAteeq",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdullah S. AlYemni"
     },
     {
-     "Name": "Fatimah S. AlHussain",
-     "Department": "Technical Affairs Department"
+        "Name": "Fatimah S. AlHussain",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
     },
     {
-     "Name": "Fawziah S. AlOtaibi",
-     "Department": "Corporate Communication"
+        "Name": "Fatimah M. AlKabbi",
+        "Department": "CEO's Office",
+        "ManagerName": "Dahmash A. AlDahmash"
     },
     {
-     "Name": "Federico  De Nardo",
-     "Department": "Planning department"
+        "Name": "Fawziah S. AlOtaibi",
+        "Department": "Corporate Communication",
+        "ManagerName": "    "
     },
     {
-     "Name": "Fheed A. AlShammari",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Fheed A. AlShammari",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Sameer M. AlKerji"
     },
     {
-     "Name": "Flwah F. Bin Salmah",
-     "Department": "Financial Management"
+        "Name": "Fahad AlSohem",
+        "Department": "Centers Affairs",
+        "ManagerName": "Abdullah M. Alahmari"
     },
     {
-     "Name": "Ghaida I. Alhudaib",
-     "Department": "Project Management Office"
+        "Name": "Faten M. BinHalwan",
+        "Department": "Sector Development",
+        "ManagerName": "Ali Bin Duhaim"
     },
     {
-     "Name": "Ghaida S. Alaqeel",
-     "Department": "PMO"
+        "Name": "Fahad S. bin Madhi",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Ghassan Aljohani",
-     "Department": "     "
+        "Name": "Faisal T. Daghistani",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
     },
     {
-     "Name": "Hamad  AlMahna",
-     "Department": "CEO Office"
+        "Name": "Federico  De Nardo",
+        "Department": "Planning department",
+        "ManagerName": "   "
     },
     {
-     "Name": "Hamad H. AlAbbas",
-     "Department": "Technical Affairs Department"
+        "Name": "Farah Z. Fathallah",
+        "Department": "    ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Hanen I. AlOjaimi",
-     "Department": "Human Resources and Administration"
+        "Name": "Flwah F. Bin Salmah",
+        "Department": "Financial Management",
+        "ManagerName": "    "
     },
     {
-     "Name": "Hassan A. AlSultan",
-     "Department": "CEO "
+        "Name": "Ghaida S. Alaqeel",
+        "Department": "PMO",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Hassan M. Alkhouli",
-     "Department": "Cyber Security "
+        "Name": "Ghaida I. Alhudaib",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Haya G. AlGhayyathat",
-     "Department": "Project Management Office"
+        "Name": "Ghassan Aljohani",
+        "Department": "    ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Hessah M. AlOmair",
-     "Department": "Sector Development"
+        "Name": "Hamad H. AlAbbas",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
     },
     {
-     "Name": "Hind Alkhathlan",
-     "Department": "Licenses and Permits"
+        "Name": "Hussain N. Aldawood",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Hussain N. Aldawood",
-     "Department": "   "
+        "Name": "Hind A. AlFarhan",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Ahmed M. AlFaryan"
     },
     {
-     "Name": "Ibrahim S. AlYami",
-     "Department": "General Administration of Digital Solutions"
+        "Name": "Haya G. AlGhayyathat",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Invite",
-     "Department": "Corporate Communication"
+        "Name": "Hind Alkhathlan",
+        "Department": "Licenses and Permits",
+        "ManagerName": "    "
     },
     {
-     "Name": "Jad Baz",
-     "Department": "CEO Office"
+        "Name": "Hassan M. Alkhouli",
+        "Department": "Cyber Security ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Karim Hashash",
-     "Department": "Technical Affairs"
+        "Name": "Hamad  AlMahna",
+        "Department": "CEO Office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Khalda M. Alrashidi",
-     "Department": "Technical Affairs Department"
+        "Name": "Hanen I. AlOjaimi",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdullah S. AlYemni"
     },
     {
-     "Name": "Khalid A. AlOtaibi",
-     "Department": "Technical Affairs Department"
+        "Name": "Hessah M. AlOmair",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Khalid E. Alhayiti",
-     "Department": "Legal Affairs"
+        "Name": "Hassan A. AlSultan",
+        "Department": "CEO ",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Khalid M. Khamis",
-     "Department": "Human Resources and Administration"
+        "Name": "Houssam B. Mekkaoui",
+        "Department": "Cybersecurity",
+        "ManagerName": "    "
     },
     {
-     "Name": "Khalid S. Alrayes",
-     "Department": "Human Resources and Administration"
+        "Name": "Ibrahim S. AlYami",
+        "Department": "General Administration of Digital Solutions",
+        "ManagerName": "Mohammed H. AlDarwish"
     },
     {
-     "Name": "Lama F. AlMajed",
-     "Department": "Project Management Office"
+        "Name": "Jad Baz",
+        "Department": "CEO Office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Lana M. Alasim",
-     "Department": "PMO"
+        "Name": "Khaled H. Albrahim",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "    "
     },
     {
-     "Name": "Layla S. AlHarbi",
-     "Department": "Corporate Communication Management"
+        "Name": "Dr. Khaled S. AlHabshan",
+        "Department": "    ",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Luluh K. Alsaawi",
-     "Department": "Human Resources and Administration"
+        "Name": "Dr. Khaled S. AlHabshan",
+        "Department": "General Manager of Legal Affairs Department ",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Majed H. Alawami",
-     "Department": "   "
+        "Name": "Khalid E. Alhayiti",
+        "Department": "Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Majed M. AlOtaibi",
-     "Department": "Cyber Security"
+        "Name": "Khalid A. AlOtaibi",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Salman F. AlShmarei"
     },
     {
-     "Name": "Manal M. Ghalib",
-     "Department": "Licenses and Permits"
+        "Name": "Khalda M. Alrashidi",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "    "
     },
     {
-     "Name": "Mansur Alshehri",
-     "Department": "General Administration of Regulations and Licensing"
+        "Name": "Khalid S. Alrayes",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "     "
     },
     {
-     "Name": "Mariam A. AlShehri",
-     "Department": "Human Resources and Administration"
+        "Name": "Karim Hashash",
+        "Department": "Technical Affairs",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
     },
     {
-     "Name": "Mead H. AlShehri",
-     "Department": "Technical Affairs Department"
+        "Name": "Khalid M. Khamis",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdulaziz AlSalem"
     },
     {
-     "Name": "Meshal A. AlHussain",
-     "Department": "Department of Legal Affairs"
+        "Name": "Lana M. Alasim",
+        "Department": "PMO",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Meshari S. AlQuwayzani",
-     "Department": "Sector Development"
+        "Name": "Layla S. AlHarbi",
+        "Department": "Corporate Communication Management",
+        "ManagerName": "Sultan F. AlHarthi"
     },
     {
-     "Name": "Moath A. AlAqeel",
-     "Department": "Legal Affairs"
+        "Name": "Lama F. AlMajed",
+        "Department": "Project Management Office",
+        "ManagerName": "    "
     },
     {
-     "Name": "Modhi B. Bin Oraer",
-     "Department": "General Department of Legal Affairs"
+        "Name": "Luluh K. Alsaawi",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdulaziz AlSalem"
     },
     {
-     "Name": "Mohammad A. Alnafisah",
-     "Department": "Centers Affairs"
+        "Name": "Mariam A. AlShehri",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdullah S. AlYemni"
     },
     {
-     "Name": "Mohammad Atya",
-     "Department": "   "
+        "Name": "Mahmoud abdelbaky",
+        "Department": "   ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Mohammad F. AlDaheem",
-     "Department": "CEO's Office"
+        "Name": "Mohammed M. AbuJubara",
+        "Department": "General Administration of Digital Solutions",
+        "ManagerName": "Mohammed H. AlDarwish"
     },
     {
-     "Name": "Mohammed A. Alghamdi",
-     "Department": "Digital Solutions"
+        "Name": "Moath A. AlAqeel",
+        "Department": "Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Mohammed A. AlHawlan",
-     "Department": "Financial Management"
+        "Name": "Mohammed S. Alasmari",
+        "Department": "CEO's Office",
+        "ManagerName": "   "
     },
     {
-     "Name": "Mohammed A. AlMubarraz",
-     "Department": "Financial Management"
+        "Name": "Majed H. Alawami",
+        "Department": "   ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Mohammed B. AlSaghan",
-     "Department": "Legal Affairs"
+        "Name": "Mohammad F. AlDaheem",
+        "Department": "CEO's Office",
+        "ManagerName": "  "
     },
     {
-     "Name": "Mohammed H. AlDarwish",
-     "Department": "General Administration of Digital Solutions"
+        "Name": "Mohammed M. AlDosari",
+        "Department": "Project office management",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Mohammed M. AbuJubara",
-     "Department": "General Administration of Digital Solutions"
+        "Name": "Muhannad M. AlEnazi",
+        "Department": "Project Management Office",
+        "ManagerName": "    "
     },
     {
-     "Name": "Mohammed M. AlDosari",
-     "Department": "Project office management"
+        "Name": "Mohammed A. Alghamdi",
+        "Department": "Digital Solutions",
+        "ManagerName": "Younes H. Almanameen"
     },
     {
-     "Name": "Mohammed S. Alasmari",
-     "Department": "CEO's Office"
+        "Name": "Munerah H. AlHajri",
+        "Department": "digital solutions",
+        "ManagerName": "Abdulghani A. AlAmri"
     },
     {
-     "Name": "Mosaed M. AlZahrani",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Mohammed A. AlHawlan",
+        "Department": "Financial Management",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Mosleh A. AlShamrani",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Moudi M. AlHussain",
+        "Department": "financial management",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Moudi M. AlHussain",
-     "Department": "financial management"
+        "Name": "Meshal A. AlHussain",
+        "Department": "Department of Legal Affairs",
+        "ManagerName": "Abdulaziz AlSalem"
     },
     {
-     "Name": "Muhannad M. AlEnazi",
-     "Department": "Project Management Office"
+        "Name": "Mayas A. Almtuoa",
+        "Department": "Sector Department",
+        "ManagerName": "    "
     },
     {
-     "Name": "Munerah H. AlHajri",
-     "Department": "digital solutions"
+        "Name": "Mohammed A. AlMubarraz",
+        "Department": "Financial Management",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Musaed A. AlSudairi",
-     "Department": "Sector Development"
+        "Name": "Mohammad A. Alnafisah",
+        "Department": "Centers Affairs",
+        "ManagerName": "    "
     },
     {
-     "Name": "Musfer R. AlYami",
-     "Department": "General Administration of Regulations and Licensing"
+        "Name": "Majed M. AlOtaibi",
+        "Department": "Cyber Security",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Nada A. Alsamhan",
-     "Department": "Department of Legal Affairs"
+        "Name": "Meshari S. AlQuwayzani",
+        "Department": "Sector Development",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Nada F. Almutairi",
-     "Department": "Human Resources and Administration"
+        "Name": "Mohammed B. AlSaghan",
+        "Department": "Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Naif m. binsulaiman",
-     "Department": "    "
+        "Name": "Mosleh A. AlShamrani",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Sameer M. AlKerji"
     },
     {
-     "Name": "Nasser A. Mshai",
-     "Department": "General Administration of Regulations and Licensing"
+        "Name": "Mead H. AlShehri",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "    "
     },
     {
-     "Name": "Nasser Q. AlDayhani",
-     "Department": "Licenses and Permits"
+        "Name": "Mansur Alshehri",
+        "Department": "General Administration of Regulations and Licensing",
+        "ManagerName": "Nasser A. Mshai"
     },
     {
-     "Name": "Nawaf A. AlThobiti",
-     "Department": "Digital Solutions"
+        "Name": "Musaed A. AlSudairi",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "netways PMO",
-     "Department": "   "
+        "Name": "Meshari Alsulaim",
+        "Department": "     ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Norah A. AlSuhaimi",
-     "Department": "Regulations and Legislation Management"
+        "Name": "Musfer R. AlYami",
+        "Department": "General Administration of Regulations and Licensing",
+        "ManagerName": "Nasser A. Mshai"
     },
     {
-     "Name": "Nourah F. AlNafesah",
-     "Department": "Beneficiary services and complaints"
+        "Name": "Mosaed M. AlZahrani",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "    "
     },
     {
-     "Name": "Ohud S. AlOsaimi",
-     "Department": "Technical Affairs Department"
+        "Name": "Marbol",
+        "Department": "   ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Osama Taha",
-     "Department": "CEO's Office"
+        "Name": "Mohammad Atya",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Osamah A. AlMaghrabi",
-     "Department": "Planning and performance management department"
+        "Name": "Modhi B. Bin Oraer",
+        "Department": "General Department of Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Othman  Bin Hashim",
-     "Department": "CEO"
+        "Name": "Manal M. Ghalib",
+        "Department": "Licenses and Permits",
+        "ManagerName": "Nasser A. Mshai"
     },
     {
-     "Name": "Raghad F. AlShehri",
-     "Department": "Project Management Office"
+        "Name": "Mohammed H. AlDarwish",
+        "Department": "General Administration of Digital Solutions",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Raghad M. AlAlyan",
-     "Department": "financial management"
+        "Name": "Mohammed F. Osailan",
+        "Department": "    ",
+        "ManagerName": "Salman F. AlShmarei"
     },
     {
-     "Name": "Rahaf Alsharif",
-     "Department": "Communication  "
+        "Name": "Mostafa Saeed",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Ramy taha",
-     "Department": "    "
+        "Name": "Nasser Q. AlDayhani",
+        "Department": "Licenses and Permits",
+        "ManagerName": "Nasser A. Mshai"
     },
     {
-     "Name": "Rana S. Bin Duraihem",
-     "Department": "Risk Management"
+        "Name": "Noura S. AlDossari",
+        "Department": "     ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Rand A. Alaskar",
-     "Department": "Sector Development"
+        "Name": "Nada F. Almutairi",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdulaziz AlSalem"
     },
     {
-     "Name": "Rawan H. AlJohani",
-     "Department": "CEO's Office"
+        "Name": "Nourah F. AlNafesah",
+        "Department": "Beneficiary services and complaints",
+        "ManagerName": "Abeer M. AlMayouf"
     },
     {
-     "Name": "Rawan M. AlShalahi",
-     "Department": "Cyber Security"
+        "Name": "Nada A. Alsamhan",
+        "Department": "Department of Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Rayyan M.  Zarari",
-     "Department": "Licenses and Permits"
+        "Name": "Norah A. AlSuhaimi",
+        "Department": "Regulations and Legislation Management",
+        "ManagerName": "Abdullah A. AlZahrani"
     },
     {
-     "Name": "Razan M. Alharbi",
-     "Department": "     "
+        "Name": "Nawaf A. AlThobiti",
+        "Department": "Digital Solutions",
+        "ManagerName": "Abdulghani A. AlAmri"
     },
     {
-     "Name": "Reem H. Burhan",
-     "Department": "PMO"
+        "Name": "Dr. Nawaf I. Bilasi",
+        "Department": "CEO Office ",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Reema A. Bin saif",
-     "Department": "Internal Audit "
+        "Name": "Naif m. binsulaiman",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Ruba I. AlNamlan",
-     "Department": "Sector Development"
+        "Name": "Nasser A. Mshai",
+        "Department": "General Administration of Regulations and Licensing",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Safouk D. AlEnazi",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Osamah A. AlMaghrabi",
+        "Department": "Planning and performance management department",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Saleh A. AlSubki",
-     "Department": "Project Management Office"
+        "Name": "Ohud S. AlOsaimi",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
     },
     {
-     "Name": "Sally Z. Alrokh",
-     "Department": "     "
+        "Name": "Othman  Bin Hashim",
+        "Department": "CEO",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Salman F. AlShmarei",
-     "Department": "Technical Affairs Department"
+        "Name": "Osama Taha",
+        "Department": "CEO's Office",
+        "ManagerName": "    "
     },
     {
-     "Name": "Salman W. BinAllam",
-     "Department": "Project Management Office"
+        "Name": "Raghad M. AlAlyan",
+        "Department": "financial management",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Sameer M. AlKerji",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Rand A. Alaskar",
+        "Department": "Sector Development",
+        "ManagerName": "Ali Bin Duhaim"
     },
     {
-     "Name": "Sami S. AlShehri",
-     "Department": "Digital Solutions "
+        "Name": "Razan S. Algarne",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Salman F. AlShmarei"
     },
     {
-     "Name": "Sami Y. AlOmairi",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Razan M. Alharbi",
+        "Department": "    ",
+        "ManagerName": "   "
     },
     {
-     "Name": "Sanna M. AlOtaibi",
-     "Department": "Digital Solutions "
+        "Name": "Rawan H. AlJohani",
+        "Department": "CEO's Office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Sara F. Alkhodairy",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Ruba I. AlNamlan",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Sara S. AlMoheisin",
-     "Department": "Finance, Accounting and Budgeting"
+        "Name": "Rana F. AlOtaibi",
+        "Department": "Digital Solutions ",
+        "ManagerName": "Abdulghani A. AlAmri"
     },
     {
-     "Name": "Sarah F. AlSaeed",
-     "Department": "Digital Solutions "
+        "Name": "Renad S. AlOwaidi",
+        "Department": "data office",
+        "ManagerName": "    "
     },
     {
-     "Name": "Sarah K. AlDurayhim",
-     "Department": "Digital Solutions"
+        "Name": "Rawan M. AlShalahi",
+        "Department": "Cyber Security",
+        "ManagerName": "Majed M. AlOtaibi"
     },
     {
-     "Name": "Sarah M. AlHarbi",
-     "Department": "Department of Legal Affairs"
+        "Name": "Rahaf Alsharif",
+        "Department": "Communication  ",
+        "ManagerName": "Sultan F. AlHarthi"
     },
     {
-     "Name": "Saud A. AlMusaed",
-     "Department": "Technical Affairs Department"
+        "Name": "Raghad F. AlShehri",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Saud A. Nasser",
-     "Department": "Technical Affairs Department"
+        "Name": "Rana S. Bin Duraihem",
+        "Department": "Risk Management",
+        "ManagerName": "Abdulrahman A. AlFawaz"
     },
     {
-     "Name": "Saud S. Bin Salmah",
-     "Department": "Sector Development"
+        "Name": "Reema A. Bin saif",
+        "Department": "Internal Audit ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Shahad K. AlMuzaini",
-     "Department": "CEO's Office"
+        "Name": "Reem H. Burhan",
+        "Department": "PMO",
+        "ManagerName": "    "
     },
     {
-     "Name": "Sheikha A. Alsubaie",
-     "Department": "Sector Development"
+        "Name": "Reem",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Sherif Ali",
-     "Department": "Digital Solutions"
+        "Name": "Rafael LEMAITRE",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "sherif Youssef",
-     "Department": "    "
+        "Name": "Ramy taha",
+        "Department": "    ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Sulaiman N. Alrubayyi",
-     "Department": "Contracts and Procurement Administration"
+        "Name": "Rayyan M.  Zarari",
+        "Department": "Licenses and Permits",
+        "ManagerName": "Nasser A. Mshai"
     },
     {
-     "Name": "Sultan A. AlHawas",
-     "Department": "Sector Development"
+        "Name": "Sahl ABDELSAYED",
+        "Department": "     ",
+        "ManagerName": "    "
     },
     {
-     "Name": "Sultan F. AlHarthi",
-     "Department": "Corporate Communication"
+        "Name": "Sarah K. AlDurayhim",
+        "Department": "Digital Solutions",
+        "ManagerName": "Mohammed H. AlDarwish"
     },
     {
-     "Name": "Sultan O. Alotaibi",
-     "Department": "    "
+        "Name": "Safouk D. AlEnazi",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Saleh A. AlSubki"
     },
     {
-     "Name": "Sultanh A. AlMudhyan",
-     "Department": "Licenses and Permits"
+        "Name": "Sarah M. AlHarbi",
+        "Department": "Department of Legal Affairs",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Sumaiah O. AlShawamen",
-     "Department": "Project Management Office"
+        "Name": "Sultan F. AlHarthi",
+        "Department": "Corporate Communication",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
     },
     {
-     "Name": "Test.intune",
-     "Department": "    "
+        "Name": "Sultan A. AlHawas",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
     },
     {
-     "Name": "Thamer N. AlMazied",
-     "Department": "General Administration of Digital Solutions"
+        "Name": "Sherif Ali",
+        "Department": "Digital Solutions",
+        "ManagerName": "Abdulghani A. AlAmri"
     },
     {
-     "Name": "Thmr T. AlMutiri",
-     "Department": "CEO's Office"
+        "Name": "Sameer M. AlKerji",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Dr. Khaled S. AlHabshan"
     },
     {
-     "Name": "Turki Y. Alateeq",
-     "Department": "General Administration of Regulations and Licensing"
+        "Name": "Sara F. Alkhodairy",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Sameer M. AlKerji"
     },
     {
-     "Name": "Virein K. Yadlapalli",
-     "Department": "    "
+        "Name": "Sara Alkhodhairy",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Sameer M. AlKerji"
     },
     {
-     "Name": "Wafa N. AlGhanim",
-     "Department": "budget management"
+        "Name": "Sara S. AlMoheisin",
+        "Department": "Finance, Accounting and Budgeting",
+        "ManagerName": "Aref O. AlShamari"
     },
     {
-     "Name": "Wejdan M. AlQarni",
-     "Department": "Technical Affairs Department"
+        "Name": "Sultanh A. AlMudhyan",
+        "Department": "Licenses and Permits",
+        "ManagerName": "Nasser A. Mshai"
     },
     {
-     "Name": "Wejdan M. Moashi",
-     "Department": "Corporate Communication"
+        "Name": "Saud A. AlMusaed",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
     },
     {
-     "Name": "Wejdan S. AlOtaibi",
-     "Department": "Human Resources and Administration"
+        "Name": "Shahad K. AlMuzaini",
+        "Department": "CEO's Office",
+        "ManagerName": "Dahmash A. AlDahmash"
     },
     {
-     "Name": "Younes H. Almanameen",
-     "Department": "Digital Solutions"
+        "Name": "Sami Y. AlOmairi",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "Sameer M. AlKerji"
     },
     {
-     "Name": "Zubaida A. Jastania",
-     "Department": "Project Management Office"
+        "Name": "Sanna M. AlOtaibi",
+        "Department": "Digital Solutions ",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Sultan O. Alotaibi",
+        "Department": "    ",
+        "ManagerName": "Sameer M. AlKerji"
+    },
+    {
+        "Name": "Sally Z. Alrokh",
+        "Department": "    ",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Sulaiman N. Alrubayyi",
+        "Department": "Contracts and Procurement Administration",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Sarah F. AlSaeed",
+        "Department": "Digital Solutions ",
+        "ManagerName": "Mohammed H. AlDarwish"
+    },
+    {
+        "Name": "Sultan  AlSaif",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
+    },
+    {
+        "Name": "Sumaiah O. AlShawamen",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
+    },
+    {
+        "Name": "Sami S. AlShehri",
+        "Department": "Digital Solutions ",
+        "ManagerName": "     "
+    },
+    {
+        "Name": "Salman F. AlShmarei",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
+    },
+    {
+        "Name": "Sheikha A. Alsubaie",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
+    },
+    {
+        "Name": "Saleh A. AlSubki",
+        "Department": "Project Management Office",
+        "ManagerName": "Dr. Abdullah F. AlSebaei"
+    },
+    {
+        "Name": "Salma H. AlSukaibi",
+        "Department": "  ",
+        "ManagerName": "Ahmed M. AlFaryan",
+        
+    },
+    {
+        "Name": "Salman W. BinAllam",
+        "Department": "Project Management Office",
+        "ManagerName": "Saleh A. AlSubki"
+    },
+    {
+        "Name": "Saud S. Bin Salmah",
+        "Department": "Sector Development",
+        "ManagerName": "Meshari S. AlQuwayzani"
+    },
+    {
+        "Name": "sayed A. Mohamed",
+        "Department": "data office",
+        "ManagerName": "    "
+    },
+    {
+        "Name": "Saud A. Nasser",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
+    },
+    {
+        "Name": "sherif Youssef",
+        "Department": "     ",
+        "ManagerName": "    "
+    },
+    {
+        "Name": "Turki Y. Alateeq",
+        "Department": "General Administration of Regulations and Licensing",
+        "ManagerName": "Nasser A. Mshai"
+    },
+    {
+        "Name": "Thamer N. AlMazied",
+        "Department": "General Administration of Digital Solutions",
+        "ManagerName": "Mohammed H. AlDarwish"
+    },
+    {
+        "Name": "Thmr T. AlMutiri",
+        "Department": "CEO's Office",
+        "ManagerName": "Dahmash A. AlDahmash"
+    },
+    {
+        "Name": "Toon SCHRIJVERS",
+        "Department": "   ",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Virein K. Yadlapalli",
+        "Department": "    ",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Wejdan M. AlBalawi",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Wafa N. AlGhanim",
+        "Department": "budget management",
+        "ManagerName": "   "
+    },
+    {
+        "Name": "Wejdan S. AlOtaibi",
+        "Department": "Human Resources and Administration",
+        "ManagerName": "Abdulaziz AlSalem"
+    },
+    {
+        "Name": "Wejdan M. AlQarni",
+        "Department": "Technical Affairs Department",
+        "ManagerName": "Dr. Nawaf I. Bilasi"
+    },
+    {
+        "Name": "Wejdan M. Moashi",
+        "Department": "Corporate Communication",
+        "ManagerName": "Sultan F. AlHarthi"
+    },
+    {
+        "Name": "Wael A. Shokr",
+        "Department": "    ",
+        "ManagerName": "Nasser A. Mshai"
+    },
+    {
+        "Name": "Younes H. Almanameen",
+        "Department": "Digital Solutions",
+        "ManagerName": "Mohammed H. AlDarwish"
+    },
+    {
+        "Name": "Zubaida A. Jastania",
+        "Department": "Project Management Office",
+        "ManagerName": "    "
     }
-   ];
+];
 
    getEmployeeInfoByName(empName:string){
        let empInfo= this.employeeAccounts.filter(a=>a.Name == empName);
        return empInfo[0]? empInfo[0].Department : '';
    }
+
+   getEmployeeManagerByName(empName:string){
+    let empInfo= this.employeeAccounts.filter(a=>a.Name == empName);
+    return empInfo[0]? empInfo[0].ManagerName : '';
 }
+}
+
 
 
 
